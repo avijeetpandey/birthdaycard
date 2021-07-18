@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +15,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createBirthdayCard(view: View) {
-       val intent = Intent(this,BirthdayGreetingActivity::class.java)
+        val name = nameField.editableText.toString()
+        val intent = Intent(this,BirthdayGreetingActivity::class.java)
+        intent.putExtra(BirthdayGreetingActivity.NAME_EXTRA,name)
         startActivity(intent)
     }
 }
